@@ -79,4 +79,5 @@ cont = Controller()
 cont.start()
 
 while (True):
+    print("\n")
     cont.menu()

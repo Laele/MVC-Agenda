@@ -8,12 +8,17 @@ class Model:
         self.citas = []
     
     def esta_id(self,id_contacto):
+        #print(id_contacto)
+        for c in self.contactos:
+            print(c.nombre)
+            print(c.id_contacto)
         for c in self.contactos:
             if c.id_contacto == id_contacto:
                 return True,c
         return False,0
     
     def esta_id_cita(self,id_cita):
+        print(id_cita)
         for c in self.citas:
             if c.id_cita == id_cita:
                 return True,c

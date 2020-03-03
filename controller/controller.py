@@ -39,7 +39,7 @@ class Controller:
         if e:
             self.view.borrar_contacto(c)
         else:
-            self.view.contacto_no_exite(id_contacto)
+            self.view.contacto_no_existe(id_contacto)
     
     def leer_contactos_letra(self,letra):
         c = self.model.buscar_contacto_letra(letra)
@@ -75,9 +75,9 @@ class Controller:
     def borrar_cita(self,id_cita):
         e,c = self.model.borrar_cita(id_cita)
         if e:
-            self.view.borrar_cita(c)
+            self.view.borrar_cita(id_cita)
         else:
-            self.view.cita_no_exite(c.id_cita)
+            self.view.cita_no_existe(id_cita)
     
     def leer_cita_fecha(self,fecha):
         c = self.model.leer_cita_fecha(fecha)
@@ -123,17 +123,34 @@ class Controller:
             n_tel = input("Introduce el nuevo telefono: ")
             n_correo = input("Introduce el nuevo correo: ")
             n_dir = input("Introduce la nueva direccion: ")
-            self.actualizar_contacto(id_contacto, n_nombre,n_tel,n_correo,n_dir)
+            self.actualizar_contacto(int(id_contacto), n_nombre,n_tel,n_correo,n_dir)
         elif o == '4':
-            pass
+            id_contacto = input("Introduce el id del contacto a eliminar: ")
+            self.borrar_contacto(int(id_contacto))
         elif o == '5':
-            pass
+            id_cita = input("Introduce el id de la cita: ")
+            id_contacto = input("Introduce el id del contacto a citar: ")
+            lugar = input("Introduce el Lugar de la cita: ")
+            fecha = input("Introduce la fecha de la cita: ")
+            hora = input("Introduce la hora de la cita: ")
+            asunto = input("Introduce el asunto de la cita: ")
+
+            self.agregar_citaint(int(id_cita),int(id_contacto),lugar,fecha,hora,asunto)
         elif o == '6':
-            pass
+            self.leer_todas_citas()
         elif o == '7':
-            pass
+            print("Da enter si no quieres sustituir dicho dato.")
+            id_cita = input("Introduce el id de la cita a cambiar: ") 
+            n_id_contacto = input("Introduce el id del nuevo contacto a citar: ")
+            n_lugar = input("Introduce el nuevo lugar: ")
+            n_fecha  = input("Introduce la nueva fecha: ")
+            n_hora = input("Introduce la nueva hora: ")
+            n_asunto = input("Introduce el nuevo asunto: ")
+
+            self.actualizar_cita(int(id_cita),int(n_id_contacto),n_lugar,n_fecha,n_hora,n_asunto)
         elif o == '8':
-            pass
+            id_cita = input("Introduce el id de la cita a borrar: ")
+            self.borrar_cita(int(id_cita))
         elif o ==  '9':
             self.view.end()
         else:

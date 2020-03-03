@@ -50,14 +50,14 @@ class View:
             print(c.id_contacto, c.lugar , c.fecha, c.hora,c.asunto)
         print('*****************************')
 
-    def borrar_cita(self,cita):
-        print(cita.id_cita, '  Cita ha expirado en la base de datos')
+    def borrar_cita(self,id_cita):
+        print(id_cita, '  Cita ha expirado en la base de datos')
     
     def modificar_cita(self,cita_o,cita_n):
         print(cita_o.nombre, ' Cita fue modificada de la base de datos')
     
-    def cita_ya_existe(self,cita):
-        print(cita.id_cita, ' Cita ya existe en la base de datos')
+    def cita_ya_existe(self,id_cita):
+        print(id_cita, ' Cita ya existe en la base de datos')
 
     def cita_no_existe(self,id_cita):
         print(id_cita, ' Cita no existe en la base de datos')
@@ -72,7 +72,7 @@ class View:
         print('3. Actualizar contacto')
         print('4. Borrar contacto')
         print('5. Agregar cita')
-        print('6. Buscar cita')
+        print('6. Mostrar citas')
         print('7. Actualizar cita')
         print('8. Borrar cita')
 
